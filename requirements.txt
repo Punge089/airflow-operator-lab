@@ -1,0 +1,8 @@
+# ลงคู่กับ constraint file เสมอ ดูคำสั่งเต็มใน README.md
+# ไม่ใส่ apache-airflow เองในไฟล์นี้ เพราะเวอร์ชันหลักควรลงแยกต่างหากด้วย == ตรง ๆ
+
+apache-airflow-providers-postgres
+psycopg2-binary
+asyncpg
+virtualenv
+cloudpickle

@@ -1,0 +1,20 @@
+# Python / venv
+.venv/
+__pycache__/
+*.pyc
+
+# Airflow runtime artifacts (สร้างใหม่ได้เสมอ ไม่ต้อง track)
+logs/
+manual_logs/
+*.log
+*.pid
+
+# ⚠️ มี connection string + password อยู่ข้างใน ห้าม commit
+airflow.cfg
+airflow.db
+simple_auth_manager_passwords.json.generated
+
+# ไฟล์ signal ที่ใช้ทดสอบ sensor (สร้างด้วย touch ตอน demo)
+signals/
+
+.env
