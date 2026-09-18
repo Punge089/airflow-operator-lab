@@ -1,8 +1,8 @@
 # Airflow 3.3 Operator Lab
 
-DAG ตัวอย่าง 8 ไฟล์ แบ่งตามกลไก 6 กลุ่ม (Action, Control-flow, Sensor, Transfer, Deferrable,
-Custom) + Intro + TaskFlow/Dynamic Task Mapping — เขียนขึ้นเพื่อเรียนรู้ Airflow 3 อย่างละเอียด
-ทุกไฟล์ทดสอบรันจริงแล้วบน Airflow **3.3.1** / Python **3.14** (WSL2 Ubuntu)
+Repo สำหรับลองทำ lab Airflow 3 ด้วยตัวเอง — DAG ตัวอย่าง 6 ไฟล์ แบ่งตามกลไก 5 กลุ่ม
+(Action, Control-flow, Sensor, Transfer, Deferrable) + Intro เขียนขึ้นเพื่อเรียนรู้ Airflow 3
+อย่างละเอียด ทุกไฟล์ทดสอบรันจริงแล้วบน Airflow **3.3.1** / Python **3.14** (WSL2 Ubuntu)
 
 เอกสารอธิบายละเอียด (concept, evidence, กับดักที่เจอ) อยู่แยกเป็นไฟล์ `.md` ต่างหาก
 ไม่ได้รวมอยู่ใน repo นี้ — ถามคนที่ดูแล repo นี้ถ้าต้องการ
@@ -16,9 +16,7 @@ dags/
 ├── dag_02_controlflow.py        Control-flow — Branch / trigger_rule / ShortCircuit / TriggerDagRun / LatestOnly (3 DAG ในไฟล์เดียว)
 ├── dag_03_sensor.py             Sensor — PythonSensor (poke vs reschedule) + FileSensor
 ├── dag_04_transfer.py           Transfer — GenericTransfer (Postgres → Postgres)
-├── dag_05_deferrable.py         Deferrable — FileSensor(deferrable=True)
-├── dag_06_custom.py             Custom — RowCountOperator (subclass BaseOperator + Hook + template_fields)
-└── dag_07_taskflow_dynamic.py   TaskFlow — @task + XCom อัตโนมัติ + .expand()
+└── dag_05_deferrable.py         Deferrable — FileSensor(deferrable=True)
 ```
 
 ## Requirements
@@ -44,7 +42,7 @@ mkdir -p $AIRFLOW_HOME/signals
 airflow connections add fs_default --conn-type fs --conn-extra '{"path": "/"}'
 ```
 
-### 3. Connection `pg_lab` + ตาราง `source_data` (สำหรับ dag_01/dag_04/dag_06)
+### 3. Connection `pg_lab` + ตาราง `source_data` (สำหรับ dag_01/dag_04)
 ```bash
 airflow connections add pg_lab \
   --conn-type postgres \
